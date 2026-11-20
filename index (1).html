@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portofolio pribadi - Web Developer & Creative Learner">
+  <title>Portofolio | Thalita Aurelia Shafa</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+    :root {
+      --bg: #080f20;
+      --bg-soft: #0d1830;
+      --card: rgba(24, 39, 66, .78);
+      --card-solid: #14223d;
+      --blue: #82b7ff;
+      --blue-bright: #4d91f5;
+      --ice: #c7e2ff;
+      --text: #edf5ff;
+      --muted: #9aacc7;
+      --line: rgba(155, 193, 239, .14);
+      --shadow: 0 18px 55px rgba(0, 0, 0, .28);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 82% 10%, rgba(57, 116, 203, .16), transparent 27rem),
+        radial-gradient(circle at 10% 45%, rgba(63, 113, 185, .10), transparent 25rem),
+        var(--bg);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 44px));
+      margin: auto;
+    }
+
+    .eyebrow {
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      font: 500 .72rem 'DM Mono', monospace;
+      margin-bottom: 13px;
+    }
+
+    .section-title {
+      font: 700 clamp(2rem, 4vw, 2.8rem) 'Space Grotesk', sans-serif;
+      letter-spacing: -.045em;
+      line-height: 1.15;
+    }
+
+    .section-title span {
+      color: var(--blue);
+    }
+
+    .section-desc {
+      color: var(--muted);
+      max-width: 570px;
+      margin-top: 12px;
+      font-size: .96rem;
+    }
+
+    section {
+      padding: 105px 0;
+    }
+
+    .section-heading {
+      margin-bottom: 42px;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .center .section-desc {
+      margin-inline: auto;
+    }
+
+    /* NAVIGATION */
+
+    .navbar-wrap {
+      position: fixed;
+      inset: 16px 0 auto;
+      z-index: 100;
+      pointer-events: none;
+    }
+
+    .navbar {
+      pointer-events: auto;
+      width: min(1080px, calc(100% - 32px));
+      margin: auto;
+      min-height: 62px;
+      padding: 10px 17px 10px 23px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      border: 1px solid rgba(190, 218, 255, .2);
+      border-radius: 18px;
+      background: rgba(13, 25, 47, .82);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, .2);
+    }
+
+    .logo {
+      font: 700 1.15rem 'Space Grotesk', sans-serif;
+      letter-spacing: -.04em;
+    }
+
+    .logo span {
+      color: var(--blue);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #c0cde0;
+      font-size: .78rem;
+      font-weight: 700;
+      transition: .25s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--blue);
+    }
+
+    .nav-cta,
+    .btn-primary {
+      border: 0;
+      color: #071326;
+      background: linear-gradient(110deg, var(--ice), var(--blue));
+      padding: 11px 20px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: .78rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 7px 25px rgba(91, 157, 242, .2);
+      transition: .25s;
+      cursor: pointer;
+    }
+
+    .nav-cta:hover,
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(91, 157, 242, .32);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 0;
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 710px;
+      display: flex;
+      align-items: center;
+      padding: 145px 0 80px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .hero h1 {
+      font: 700 clamp(2.8rem, 6vw, 5rem)/1.04 'Space Grotesk', sans-serif;
+      letter-spacing: -.065em;
+      max-width: 650px;
+    }
+
+    .hero h1 .accent {
+      color: var(--blue);
+    }
+
+    .hero-role {
+      color: var(--ice);
+      font: 600 clamp(1.15rem, 2.5vw, 1.65rem) 'Space Grotesk', sans-serif;
+      margin: 17px 0;
+    }
+
+    .typing-cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1em;
+      background: var(--blue);
+      vertical-align: -.12em;
+      margin-left: 3px;
+      animation: blink .8s infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    .hero-copy {
+      color: var(--muted);
+      max-width: 520px;
+      font-size: .96rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-top: 30px;
+    }
+
+    .btn-outline {
+      padding: 10px 19px;
+      border-radius: 999px;
+      border: 1px solid rgba(163, 199, 244, .28);
+      color: var(--ice);
+      font-size: .8rem;
+      font-weight: 700;
+      transition: .25s;
+    }
+
+    .btn-outline:hover {
+      background: rgba(130, 183, 255, .1);
+      border-color: var(--blue);
+    }
+
+    .socials {
+      display: flex;
+      gap: 9px;
+      margin-left: 5px;
+    }
+
+    .socials a {
+      width: 37px;
+      height: 37px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--ice);
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .04);
+      font-size: .75rem;
+      font-weight: 800;
+      transition: .25s;
+    }
+
+    .socials a:hover {
+      background: var(--blue);
+      color: #081326;
+      transform: translateY(-3px);
+    }
+
+    .hero-visual {
+      min-height: 450px;
+      display: grid;
+      place-items: center;
+      position: relative;
+    }
+
+    /* FOTO PROFIL - SUDAH DIPERBAIKI */
+
+    .portrait-frame {
+      width: min(370px, 82%);
+      aspect-ratio: .82;
+      border-radius: 48% 48% 28% 28%;
+      border: 1px solid rgba(151, 195, 255, .28);
+      background: linear-gradient(145deg, #14294a, #0c1830);
+      box-shadow:
+        0 0 0 13px rgba(114, 169, 238, .035),
+        0 0 80px rgba(60, 126, 213, .17);
+      position: relative;
+      overflow: hidden;
+      display: block;
+      z-index: 1;
+    }
+
+    .portrait-frame .profile-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+    }
+
+    .photo-caption {
+      position: absolute;
+      bottom: 18px;
+      left: 18px;
+      color: #ffffff;
+      font-size: 12px;
+      letter-spacing: 1px;
+      z-index: 2;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, .65);
+    }
+
+    .orbit {
+      position: absolute;
+      width: 440px;
+      height: 440px;
+      border: 1px solid rgba(130, 183, 255, .12);
+      border-radius: 50%;
+    }
+
+    .orbit::before,
+    .orbit::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 22px var(--blue);
+    }
+
+    .orbit::before {
+      width: 7px;
+      height: 7px;
+      top: 15%;
+      right: 17%;
+    }
+
+    .orbit::after {
+      width: 5px;
+      height: 5px;
+      bottom: 16%;
+      left: 13%;
+    }
+
+    .float-tag {
+      position: absolute;
+      padding: 10px 14px;
+      background: rgba(19, 35, 61, .9);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      color: var(--ice);
+      font: .7rem 'DM Mono', monospace;
+      box-shadow: var(--shadow);
+      z-index: 2;
+    }
+
+    .tag-one {
+      top: 19%;
+      left: 0;
+    }
+
+    .tag-two {
+      bottom: 18%;
+      right: 0;
+    }
+
+    /* TECH STRIP */
+
+    .tech-strip {
+      border-block: 1px solid var(--line);
+      background: rgba(30, 54, 88, .28);
+      padding: 22px 0;
+    }
+
+    .tech-list {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      color: #a9bfdc;
+      font: 500 .85rem 'DM Mono', monospace;
+    }
+
+    .tech-list span {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .tech-list b {
+      color: var(--blue);
+      font-size: 1.1rem;
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 65px;
+      align-items: center;
+    }
+
+    .about-art {
+      min-height: 370px;
+      border-radius: 28px;
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(circle at 50% 45%, rgba(117, 174, 247, .22), transparent 48%),
+        linear-gradient(145deg, #14294a, #0c1830);
+      border: 1px solid var(--line);
+      display: grid;
+      place-items: center;
+    }
+
+    .about-art .big-symbol {
+      font: 700 10rem 'Space Grotesk', sans-serif;
+      color: rgba(160, 204, 255, .2);
+      text-shadow: 0 0 45px rgba(92, 155, 235, .2);
+    }
+
+    .about-art .small-note {
+      position: absolute;
+      bottom: 24px;
+      left: 25px;
+      color: var(--ice);
+      font: .72rem 'DM Mono', monospace;
+      z-index: 3;
+    }
+
+    /* FOTO DI CONTAINER ABOUT (tambahan) */
+
+    .about-photo-wrap {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .about-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .about-photo-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(8, 15, 32, .75), transparent 45%);
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-top: 18px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 23px 30px;
+      margin-top: 30px;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--blue);
+      font: 700 2rem 'Space Grotesk', sans-serif;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: .78rem;
+    }
+
+    /* CARDS */
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .glass-card {
+      background: linear-gradient(145deg, rgba(27, 45, 73, .88), rgba(17, 31, 54, .88));
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 25px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, .12);
+      transition: .3s;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(130, 183, 255, .4);
+      box-shadow: var(--shadow);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .card-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(130, 183, 255, .12);
+      color: var(--blue);
+      font-size: 1.1rem;
+    }
+
+    .card-year {
+      color: var(--blue);
+      font: .75rem 'DM Mono', monospace;
+    }
+
+    .glass-card h3 {
+      font: 600 1.05rem 'Space Grotesk', sans-serif;
+      margin: 20px 0 7px;
+    }
+
+    .glass-card p {
+      color: var(--muted);
+      font-size: .83rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 18px;
+    }
+
+    .tags span {
+      font: .65rem 'DM Mono', monospace;
+      color: #b9d7fb;
+      background: rgba(106, 164, 236, .12);
+      border: 1px solid rgba(130, 183, 255, .12);
+      padding: 5px 9px;
+      border-radius: 99px;
+    }
+
+    .card-link {
+      display: inline-flex;
+      margin-top: 20px;
+      color: var(--blue);
+      font-size: .77rem;
+      font-weight: 700;
+    }
+
+    /* PKL EXPERIENCE */
+
+    .experience-section .section-heading {
+      text-align: left;
+      margin-bottom: 32px;
+    }
+
+    .experience-card {
+      max-width: 900px;
+      padding: 35px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: linear-gradient(145deg, rgba(27, 45, 73, .88), rgba(17, 31, 54, .88));
+      box-shadow: var(--shadow);
+      transition: .3s ease;
+    }
+
+    .experience-card:hover {
+      border-color: rgba(130, 183, 255, .4);
+      transform: translateY(-4px);
+    }
+
+    .experience-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .experience-tag {
+      color: var(--blue);
+      font: 500 .7rem 'DM Mono', monospace;
+      letter-spacing: .15em;
+    }
+
+    .experience-top h3 {
+      font: 600 1.35rem 'Space Grotesk', sans-serif;
+      margin: 12px 0 5px;
+      color: var(--text);
+    }
+
+    .experience-location {
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    .experience-date {
+      color: var(--blue);
+      background: rgba(130, 183, 255, .1);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 7px 15px;
+      font: 500 .7rem 'DM Mono', monospace;
+      white-space: nowrap;
+    }
+
+    .experience-line {
+      height: 1px;
+      background: var(--line);
+      margin: 25px 0;
+    }
+
+    .experience-description {
+      color: var(--muted);
+      font-size: .9rem;
+      line-height: 1.8;
+    }
+
+    .experience-card h4 {
+      color: var(--ice);
+      font: 600 1rem 'Space Grotesk', sans-serif;
+      margin: 25px 0 12px;
+    }
+
+    .experience-list {
+      padding-left: 20px;
+      color: var(--muted);
+      font-size: .88rem;
+      line-height: 2;
+    }
+
+    .experience-list li::marker {
+      color: var(--blue);
+    }
+
+    /* EDUCATION */
+
+    .education-grid {
+      display: grid;
+      grid-template-columns: .75fr 1.25fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .edu-decoration {
+      min-height: 350px;
+      display: grid;
+      place-items: center;
+      position: relative;
+    }
+
+    .edu-decoration .edu-orb {
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #c4e2ff, #5798e8 35%, #183c6b 72%);
+      opacity: .8;
+      filter: drop-shadow(0 0 55px rgba(80, 147, 230, .25));
+    }
+
+    .edu-decoration::before,
+    .edu-decoration::after {
+      content: '';
+      position: absolute;
+      border: 1px solid rgba(130, 183, 255, .2);
+      border-radius: 50%;
+      width: 310px;
+      height: 310px;
+    }
+
+    .edu-decoration::after {
+      width: 360px;
+      height: 360px;
+    }
+
+    .edu-item {
+      padding: 21px 23px;
+      border: 1px solid var(--line);
+      background: rgba(25, 42, 68, .65);
+      border-radius: 15px;
+      margin-bottom: 13px;
+    }
+
+    .edu-item h3 {
+      font: 600 1rem 'Space Grotesk', sans-serif;
+    }
+
+    .edu-item .place {
+      color: var(--blue);
+      font-size: .8rem;
+      margin: 4px 0;
+    }
+
+    .edu-item .date {
+      color: var(--muted);
+      font: .68rem 'DM Mono', monospace;
+    }
+
+    /* SKILLS */
+
+    .skills-layout {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .skill {
+      margin-top: 20px;
+    }
+
+    .skill-label {
+      display: flex;
+      justify-content: space-between;
+      color: #d9e8fa;
+      font-size: .82rem;
+      margin-bottom: 8px;
+    }
+
+    .skill-label span:last-child {
+      color: var(--blue);
+      font: .72rem 'DM Mono', monospace;
+    }
+
+    .skill-track {
+      height: 7px;
+      border-radius: 99px;
+      background: rgba(180, 205, 239, .1);
+      overflow: hidden;
+    }
+
+    .skill-fill {
+      height: 100%;
+      width: 0;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #4b8de5, #b5d9ff);
+      transition: width 1.3s ease;
+    }
+
+    /* PROJECTS */
+
+    .project-card {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .project-cover {
+      height: 210px;
+      overflow: hidden;
+      position: relative;
+      background: #14294a;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .project-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .5s ease;
+    }
+
+    .project-card:hover .project-cover img {
+      transform: scale(1.06);
+    }
+
+    .project-info {
+      padding: 22px;
+    }
+
+    .project-info h3 {
+      margin: 0 0 8px;
+    }
+
+    /* CONTACT + FOOTER */
+
+    .contact-panel {
+      text-align: center;
+      padding: 55px 25px;
+      border-radius: 25px;
+      border: 1px solid rgba(130, 183, 255, .2);
+      background: radial-gradient(circle at 50% 0%, rgba(75, 139, 222, .19), transparent 60%), rgba(20, 36, 61, .65);
+    }
+
+    .contact-panel .section-desc {
+      margin: 14px auto 25px;
+    }
+
+    .contact-details {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .contact-details a {
+      color: var(--ice);
+      border: 1px solid var(--line);
+      border-radius: 99px;
+      padding: 9px 15px;
+      font-size: .78rem;
+      transition: .25s;
+    }
+
+    .contact-details a:hover {
+      color: var(--blue);
+      border-color: var(--blue);
+      background: rgba(130, 183, 255, .08);
+    }
+
+    /* DOWNLOAD CV BUTTON */
+
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 11px 21px;
+      border-radius: 999px;
+      background: linear-gradient(110deg, var(--ice), var(--blue));
+      color: #071326 !important;
+      font-size: .78rem;
+      font-weight: 800;
+      border: none !important;
+      transition: .25s;
+      box-shadow: 0 7px 25px rgba(91, 157, 242, .2);
+    }
+
+    .btn-download:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(91, 157, 242, .32);
+    }
+
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .75rem;
+      text-align: center;
+    }
+
+    /* SCROLL REVEAL */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+    }
+
+    @media (max-width: 850px) {
+      .nav-links {
+        gap: 13px;
+      }
+
+      .nav-links a {
+        font-size: .7rem;
+      }
+
+      .hero-grid {
+        gap: 20px;
+      }
+
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-grid {
+        gap: 35px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .container {
+        width: min(100% - 34px, 520px);
+      }
+
+      section {
+        padding: 78px 0;
+      }
+
+      .navbar-wrap {
+        top: 10px;
+      }
+
+      .navbar {
+        min-height: 56px;
+        padding: 9px 15px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        right: 0;
+        padding: 18px;
+        border-radius: 16px;
+        background: rgba(13, 25, 47, .97);
+        border: 1px solid var(--line);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        box-shadow: var(--shadow);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 11px 8px;
+        font-size: .82rem;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 135px 0 65px;
+      }
+
+      .hero-grid,
+      .about-grid,
+      .education-grid,
+      .skills-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid {
+        gap: 25px;
+      }
+
+      .hero-visual {
+        min-height: 350px;
+        grid-row: 1;
+      }
+
+      .portrait-frame {
+        width: 245px;
+      }
+
+      .orbit {
+        width: 300px;
+        height: 300px;
+      }
+
+      .float-tag {
+        font-size: .62rem;
+      }
+
+      .tag-one {
+        left: 2%;
+      }
+
+      .tag-two {
+        right: 1%;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.7rem, 13vw, 4rem);
+      }
+
+      .about-art {
+        min-height: 280px;
+      }
+
+      .about-art .big-symbol {
+        font-size: 8rem;
+      }
+
+      .education-grid {
+        gap: 15px;
+      }
+
+      .edu-decoration {
+        min-height: 260px;
+      }
+
+      .edu-decoration .edu-orb {
+        width: 170px;
+        height: 170px;
+      }
+
+      .edu-decoration::before {
+        width: 230px;
+        height: 230px;
+      }
+
+      .edu-decoration::after {
+        width: 270px;
+        height: 270px;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        gap: 18px;
+      }
+
+      .experience-card {
+        padding: 23px;
+      }
+
+      .experience-top {
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .experience-top h3 {
+        font-size: 1.1rem;
+      }
+
+      .experience-date {
+        padding: 6px 10px;
+        font-size: .65rem;
+      }
+
+      .experience-list {
+        padding-left: 18px;
+      }
+
+      .contact-panel {
+        padding: 40px 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <div class="navbar-wrap">
+    <nav class="navbar">
+      <a class="logo" href="#home">Thalita Aurelia Shafa<span>.</span></a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Buka menu" aria-expanded="false">☰</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="active">HOME</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#experience">EXPERIENCE</a></li>
+        <li><a href="#skills">SKILLS</a></li>
+        <li><a href="#projects">PROJECTS</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+
+      <a class="nav-cta" href="#contact">Hire Me ↗</a>
+    </nav>
+  </div>
+
+  <main>
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+
+        <div class="hero-content reveal">
+          <p class="eyebrow">HELLO, WELCOME TO MY SPACE</p>
+
+          <h1>Hi, I'm <span class="accent">Thalita.</span></h1>
+
+          <p class="hero-role">
+            I'm a <span id="typingText">Web Developer</span><span class="typing-cursor"></span>
+          </p>
+
+          <p class="hero-copy">
+            Saya Thalita Aurelia Shafa, siswa kelas XII RPL 2 (Rekayasa Perangkat Lunak).
+            Saya tertarik pada pengembangan website, teknologi, dan desain digital.
+            Saya senang mempelajari hal baru serta mengembangkan kemampuan melalui berbagai project.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn-primary" href="#contact">Let's Connect <span>↗</span></a>
+            <a class="btn-outline" href="#projects">Explore My Work</a>
+
+            <div class="socials">
+              <a href="https://github.com/thltaarliashfa" aria-label="GitHub" title="GitHub">GH</a>
+              <a href="https://www.instagram.com/thltaarliashfa?bqrl=d3VkcDNkMmtuZWNn" aria-label="Instagram" title="Instagram">IG</a>
+              <a href="https://www.linkedin.com/in/thltaarliashfa" aria-label="LinkedIn" title="LinkedIn">in</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="orbit"></div>
+
+          <div class="portrait-frame">
+            <img
+              src="foto.png"
+              alt="Foto profil Thalita"
+              class="profile-photo"
+            >
+            <div class="photo-caption">Still learning, still growing.</div>
+          </div>
+
+          <div class="float-tag tag-one">✧ Creative mind</div>
+          <div class="float-tag tag-two">Code · Create · Grow</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TECH STRIP -->
+
+    <div class="tech-strip">
+      <div class="container tech-list">
+        <span><b>⌘</b> HTML</span>
+        <span><b>✳</b> CSS</span>
+        <span><b>JS</b> JavaScript</span>
+        <span><b>◆</b> Laravel</span>
+        <span><b>◈</b> MySQL</span>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+
+    <section id="about">
+      <div class="container about-grid">
+
+        <div class="about-art reveal">
+          <span class="big-symbol">&lt;/&gt;</span>
+
+          <!-- FOTO ABOUT: ganti nama file di src sesuai fotomu (taruh di folder yang sama dengan index.html) -->
+          <div class="about-photo-wrap">
+            <img
+              src="foto3.jpeg"
+              alt="Foto Thalita"
+              onerror="this.parentElement.style.display='none'"
+            >
+          </div>
+
+          <span class="small-note">DESIGNING IDEAS INTO REALITY — 2026</span>
+        </div>
+
+        <div class="about-text reveal">
+          <p class="eyebrow">GET TO KNOW ME</p>
+
+          <h2 class="section-title">A Little About <span>Me</span></h2>
+
+          <p>
+            Halo! Saya Thalita Aurelia Shafa, siswa kelas XII RPL 2 jurusan Rekayasa Perangkat Lunak.
+            Saat ini saya sedang mengembangkan kemampuan di bidang web development.
+            Saya memiliki rasa ingin tahu yang tinggi, suka mencoba hal baru,
+            dan menikmati proses belajar dari setiap project.
+          </p>
+
+          <p>
+            Bagi saya, teknologi bukan hanya tentang menulis kode,
+            tetapi juga tentang membuat solusi yang mudah digunakan dan memiliki tampilan menarik.
+          </p>
+
+          <div class="stats">
+            <div class="stat"><strong>RPL</strong><span>Study Background</span></div>
+            <div class="stat"><strong>01+</strong><span>Years of Learning</span></div>
+            <div class="stat"><strong>05+</strong><span>Skills Explored</span></div>
+            <div class="stat"><strong>∞</strong><span>Curiosity to Learn</span></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PKL EXPERIENCE -->
+
+    <section id="experience">
+      <div class="container experience-section">
+
+        <div class="section-heading reveal">
+          <p class="eyebrow">MY JOURNEY</p>
+
+          <h2 class="section-title">Pengalaman <span>PKL</span></h2>
+
+          <p class="section-desc">
+            Mengenal dunia kerja dan mengembangkan kemampuan melalui pengalaman langsung di industri.
+          </p>
+        </div>
+
+        <div class="experience-card reveal">
+
+          <div class="experience-top">
+            <div>
+              <span class="experience-tag">PRAKTIK KERJA LAPANGAN</span>
+              <h3>PT Duta Asia Advertising</h3>
+              <p class="experience-location">Mojokerto, Jawa Timur</p>
+            </div>
+
+            <span class="experience-date">PKL</span>
+          </div>
+
+          <div class="experience-line"></div>
+
+          <p class="experience-description">
+            Melaksanakan Praktik Kerja Lapangan untuk mendapatkan pengalaman langsung
+            di lingkungan kerja, meningkatkan keterampilan, serta memahami proses kerja
+            di dunia industri.
+          </p>
+
+          <h4>Hal yang Dipelajari</h4>
+
+          <ul class="experience-list">
+            <li>Memahami alur dan lingkungan kerja perusahaan.</li>
+            <li>Meningkatkan kemampuan komunikasi dan kerja sama tim.</li>
+            <li>Belajar menyelesaikan tugas dengan tanggung jawab dan disiplin.</li>
+            <li>Mengembangkan keterampilan sesuai bidang Rekayasa Perangkat Lunak.</li>
+          </ul>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+
+    <section id="education">
+      <div class="container education-grid">
+
+        <div class="edu-decoration reveal">
+          <div class="edu-orb"></div>
+        </div>
+
+        <div class="reveal">
+          <div class="section-heading">
+            <p class="eyebrow">MY JOURNEY</p>
+            <h2 class="section-title">Education <span>& Learning</span></h2>
+            <p class="section-desc">
+              Perjalanan pendidikan dan proses saya dalam mengembangkan kemampuan.
+            </p>
+          </div>
+
+          <div class="edu-item">
+            <h3>Rekayasa Perangkat Lunak</h3>
+            <p class="place">Sekolah Menengah Kejuruan · RPL</p>
+            <p class="date">2023 — 2026 · Kelas XII RPL 2</p>
+          </div>
+
+          <div class="edu-item">
+            <h3>Praktik Kerja Lapangan (PKL)</h3>
+            <p class="place">PT Duta Asia Advertising · Mojokerto</p>
+            <p class="date">Praktik Kerja Lapangan (PKL)</p>
+          </div>
+
+          <div class="edu-item">
+            <h3>Independent Learning</h3>
+            <p class="place">Online Courses & Personal Projects</p>
+            <p class="date">Ongoing · Self Development</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+
+    <section id="skills">
+      <div class="container">
+
+        <div class="section-heading center reveal">
+          <p class="eyebrow">WHAT I CAN DO</p>
+          <h2 class="section-title">My <span>Skills</span></h2>
+          <p class="section-desc">
+            Beberapa teknologi dan tools yang sedang saya pelajari dan gunakan.
+          </p>
+        </div>
+
+        <div class="skills-layout">
+
+          <div class="glass-card reveal">
+            <h3>Technical Skills</h3>
+
+            <div class="skill">
+              <div class="skill-label"><span>HTML & CSS</span><span>Learning</span></div>
+              <div class="skill-track"><div class="skill-fill" data-level="78%"></div></div>
+            </div>
+
+            <div class="skill">
+              <div class="skill-label"><span>JavaScript</span><span>Learning</span></div>
+              <div class="skill-track"><div class="skill-fill" data-level="55%"></div></div>
+            </div>
+
+            <div class="skill">
+              <div class="skill-label"><span>PHP / Laravel</span><span>Learning</span></div>
+              <div class="skill-track"><div class="skill-fill" data-level="62%"></div></div>
+            </div>
+
+            <div class="skill">
+              <div class="skill-label"><span>MySQL</span><span>Learning</span></div>
+              <div class="skill-track"><div class="skill-fill" data-level="60%"></div></div>
+            </div>
+          </div>
+
+          <div class="glass-card reveal">
+            <h3>Creative & Personal Skills</h3>
+
+            <div class="skill">
+              <div class="skill-label"><span>UI Design</span><span>Learning</span></div>
+              <div class="skill-track"><div class="skill-fill" data-level="70%"></div></div>
+            </div>
+
+            <div class="skill">
+              <div class="skill-label"><span>Problem Solving</span><span>Developing</span></div>
+              <div class="skill-track"><div class="skill-fill" data-level="72%"></div></div>
+            </div>
+
+            <div class="skill">
+              <div class="skill-label"><span>Teamwork</span><span>Developing</span></div>
+              <div class="skill-track"><div class="skill-fill" data-level="80%"></div></div>
+            </div>
+
+            <div class="skill">
+              <div class="skill-label"><span>Communication</span><span>Developing</span></div>
+              <div class="skill-track"><div class="skill-fill" data-level="75%"></div></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+
+    <section id="projects">
+      <div class="container">
+
+        <div class="section-heading center reveal">
+          <p class="eyebrow">SELECTED WORK</p>
+          <h2 class="section-title">Featured <span>Projects</span></h2>
+          <p class="section-desc">
+            Beberapa project yang pernah saya buat selama belajar dan mengeksplorasi teknologi.
+          </p>
+        </div>
+
+        <div class="card-grid">
+
+          <article class="glass-card project-card reveal">
+            <div class="project-cover">
+              <!-- FOTO PROJECT 1: simpan screenshot dengan nama project-florify.png di folder yang sama -->
+              <img src="project ui.png" alt="Tampilan desain UI Florify">
+            </div>
+            <div class="project-info">
+              <h3>Florify UI Design</h3>
+              <p>Desain UI aplikasi mobile toko bunga (florist) yang dibuat di Figma, mencakup halaman favorit, detail produk, keranjang, dan riwayat pesanan.</p>
+              <div class="tags"><span>UI Design</span><span>Figma</span><span>Mobile App</span></div>
+            </div>
+          </article>
+
+          <article class="glass-card project-card reveal">
+            <div class="project-cover">
+              <!-- FOTO PROJECT 2: simpan screenshot dengan nama project-gym.png di folder yang sama -->
+              <img src="project.png" alt="Tampilan Web Management Gym Thalynx">
+            </div>
+            <div class="project-info">
+              <h3>Thalynx Gym Management</h3>
+              <p>Aplikasi web manajemen gym dengan dashboard admin untuk mengelola data pengguna, paket membership, dan catatan keanggotaan.</p>
+              <div class="tags"><span>Laravel</span><span>MySQL</span><span>Admin Dashboard</span></div>
+            </div>
+          </article>
+
+          <article class="glass-card project-card reveal">
+            <div class="project-cover">
+              <!-- FOTO PROJECT 3: simpan screenshot dengan nama project-novel.png di folder yang sama -->
+              <img src="project_novel.png" alt="Tampilan Website Toko Novel Litaa Novel">
+            </div>
+            <div class="project-info">
+              <h3>Litaa Novel Store</h3>
+              <p>Website toko novel online dengan katalog buku, keranjang, wishlist, dan pesanan yang dibangun menggunakan PHP, HTML, dan CSS.</p>
+              <div class="tags"><span>PHP</span><span>HTML</span><span>CSS</span></div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+      <div class="container">
+
+        <div class="contact-panel reveal">
+          <p class="eyebrow">LET'S WORK TOGETHER</p>
+
+          <h2 class="section-title">Have a project in <span>mind?</span></h2>
+
+          <p class="section-desc">
+            Saya terbuka untuk terhubung, bertukar ide, belajar bersama,
+            dan mendapatkan kesempatan baru.
+          </p>
+
+          <a class="btn-primary" href="mailto:thlta@gmail.com">Send Me an Email ↗</a>
+
+          <div class="contact-details">
+            <a href="mailto:thlta@gmail.com">thlta@gmail.com</a>
+            <a href="https://wa.me/6285706499698" target="_blank" rel="noopener">WhatsApp</a>
+            <a href="https://github.com/thltashfa" target="_blank" rel="noopener">GitHub Profile</a>
+            <a href="https://www.instagram.com/thltaarliashfa?bqrl=d3VkcDNkMmtuZWNn" target="_blank" rel="noopener">Instagram</a>
+          </div>
+
+          <a href="cv.png" download class="btn-download" style="margin-top: 25px;">
+            ↓ Download CV
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Thalita Aurelia Shafa. Designed with care & a little bit of blue.
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+    // Mobile navigation
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', isOpen);
+      menuToggle.textContent = isOpen ? '×' : '☰';
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.textContent = '☰';
+      });
+    });
+
+    // Rotating role text
+    const roles = ['Web Developer', 'UI Enthusiast', 'Creative Learner'];
+    const typingText = document.getElementById('typingText');
+    let roleIndex = 0;
+
+    setInterval(() => {
+      roleIndex = (roleIndex + 1) % roles.length;
+      typingText.style.opacity = 0;
+
+      setTimeout(() => {
+        typingText.textContent = roles[roleIndex];
+        typingText.style.opacity = 1;
+      }, 220);
+
+    }, 2300);
+
+    typingText.style.transition = 'opacity .22s ease';
+
+    // Reveal sections on scroll
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+
+          entry.target.querySelectorAll('.skill-fill').forEach(bar => {
+            bar.style.width = bar.dataset.level;
+          });
+
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => {
+      revealObserver.observe(el);
+    });
+
+    // Active navigation link
+    const sections = document.querySelectorAll('main section[id]');
+    const navItems = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+      let current = 'home';
+
+      sections.forEach(section => {
+        if (window.scrollY >= section.offsetTop - 150) {
+          current = section.id;
+        }
+      });
+
+      navItems.forEach(item => {
+        item.classList.toggle(
+          'active',
+          item.getAttribute('href') === '#' + current
+        );
+      });
+    });
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
